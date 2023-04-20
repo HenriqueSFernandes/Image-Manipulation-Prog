@@ -1,0 +1,17 @@
+open input/escher-angels-demons.png
+invert
+rotate_left
+h_mirror
+save output/extra3-tmp1.png
+open input/escher-angels-demons.png
+rotate_right
+v_mirror
+invert
+save output/extra3-tmp2.png
+
+blank 1544 1600 0 0 0
+add output/extra3-tmp2.png  0 0 0 0 0
+add output/extra3-tmp1.png  0 0 0 772 0
+add output/extra3-tmp1.png  0 0 0 0 800
+add output/extra3-tmp2.png  0 0 0 772 800
+save output/extra3.png

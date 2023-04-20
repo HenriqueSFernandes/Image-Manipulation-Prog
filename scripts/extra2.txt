@@ -1,0 +1,19 @@
+blank 1366 600 255 255 255
+add input/vu.png 255 255 255 0 0 
+add input/vu2.png 255 255 255 600 0 
+h_mirror
+v_mirror
+rotate_left
+rotate_right
+rotate_right
+to_gray_scale
+rotate_right
+rotate_right
+rotate_right
+replace 255 255 255 0 0 0
+replace 0 0 0 255 255 255
+invert
+v_mirror
+h_mirror
+invert
+save output/extra2.png

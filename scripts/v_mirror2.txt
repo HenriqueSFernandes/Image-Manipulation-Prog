@@ -1,0 +1,4 @@
+open input/symmetric.png
+v_mirror
+v_mirror
+save output/v_mirror2.png

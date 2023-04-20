@@ -1,0 +1,5 @@
+open input/pacman.png
+xpm2_save output/xpm2_save3.xpm
+blank 1 1 0 0 0
+xpm2_open output/xpm2_save3.xpm
+save output/xpm2_save3.png

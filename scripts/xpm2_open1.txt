@@ -1,0 +1,2 @@
+xpm2_open input/blarg.xpm
+save output/xpm2_open1.png

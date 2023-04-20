@@ -1,0 +1,3 @@
+open input/escher-angels-demons.png
+v_mirror
+save output/v_mirror4.png 

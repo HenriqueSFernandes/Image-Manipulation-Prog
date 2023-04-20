@@ -1,0 +1,2 @@
+xpm2_open input/tetris.xpm
+save output/xpm2_open3.png

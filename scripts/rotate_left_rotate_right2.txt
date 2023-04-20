@@ -1,0 +1,5 @@
+open input/escher-reptiles.png
+rotate_left
+rotate_right
+rotate_right
+save output/rotate_left_rotate_right2.png

@@ -1,0 +1,2 @@
+xpm2_open input/mondrian.xpm
+save output/xpm2_open4.png

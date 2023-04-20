@@ -1,0 +1,3 @@
+open input/escher-reptiles.png
+h_mirror
+save output/h_mirror4.png

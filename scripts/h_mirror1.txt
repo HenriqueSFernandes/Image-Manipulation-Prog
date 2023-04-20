@@ -1,0 +1,3 @@
+open input/symmetric.png
+h_mirror
+save output/h_mirror1.png

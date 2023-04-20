@@ -1,0 +1,4 @@
+blank 300 250 0 255 255
+blank 200 100 255 0 0
+
+save output/basic_blank3.png

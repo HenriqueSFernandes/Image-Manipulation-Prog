@@ -1,0 +1,3 @@
+open input/girl.png
+median_filter 5
+save output/median_filter2.png

@@ -1,0 +1,6 @@
+open input/mandelbrot-hp.png
+median_filter 3
+median_filter 3
+median_filter 3
+median_filter 3
+save output/median_filter5.png

@@ -1,0 +1,4 @@
+open input/escher-hands.png
+rotate_right
+rotate_right
+save output/rotate_right2.png

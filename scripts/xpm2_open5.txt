@@ -1,0 +1,2 @@
+xpm2_open input/lion.xpm
+save output/xpm2_open5.png

@@ -1,0 +1,3 @@
+open input/escher-angels-demons.png
+invert
+save output/invert4.png

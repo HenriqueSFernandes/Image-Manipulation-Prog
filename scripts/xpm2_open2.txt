@@ -1,0 +1,2 @@
+xpm2_open input/squares.xpm
+save output/xpm2_open2.png

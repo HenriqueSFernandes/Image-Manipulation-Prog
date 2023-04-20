@@ -1,0 +1,4 @@
+open input/escher-angels-demons.png
+rotate_right
+rotate_right
+save output/rotate_right3.png
