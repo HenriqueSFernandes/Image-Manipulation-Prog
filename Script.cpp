@@ -6,9 +6,11 @@
 
 using namespace std;
 
-namespace prog {
+namespace prog
+{
     // Use to read color values from a script file.
-    istream& operator>>(istream& input, Color& c) {
+    istream &operator>>(istream &input, Color &c)
+    {
         int r, g, b;
         input >> r >> g >> b;
         c.red() = r;
@@ -17,49 +19,57 @@ namespace prog {
         return input;
     }
 
-    Script::Script(const string& filename) :
-            image(nullptr), input(filename) {
-
+    Script::Script(const string &filename) : image(nullptr), input(filename)
+    {
     }
-    void Script::clear_image_if_any() {
-        if (image != nullptr) {
+    void Script::clear_image_if_any()
+    {
+        if (image != nullptr)
+        {
             delete image;
             image = nullptr;
         }
     }
-    Script::~Script() {
+    Script::~Script()
+    {
         clear_image_if_any();
     }
 
-    void Script::run() {
+    void Script::run()
+    {
         string command;
-        while (input >> command) {
+        while (input >> command)
+        {
             cout << "Executing command '" << command << "' ..." << endl;
-            if (command == "open") {
+            if (command == "open")
+            {
                 open();
                 continue;
             }
-            if (command == "blank") {
+            if (command == "blank")
+            {
                 blank();
                 continue;
             }
             // Other commands require an image to be previously loaded.
-            if (command == "save") {
+            if (command == "save")
+            {
                 save();
                 continue;
-            } 
+            }
             // TODO ...
-
         }
     }
-    void Script::open() {
+    void Script::open()
+    {
         // Replace current image (if any) with image read from PNG file.
         clear_image_if_any();
         string filename;
         input >> filename;
         image = loadFromPNG(filename);
     }
-    void Script::blank() {
+    void Script::blank()
+    {
         // Replace current image (if any) with blank image.
         clear_image_if_any();
         int w, h;
@@ -67,7 +77,8 @@ namespace prog {
         input >> w >> h >> fill;
         image = new Image(w, h, fill);
     }
-    void Script::save() {
+    void Script::save()
+    {
         // Save current image to PNG file.
         string filename;
         input >> filename;

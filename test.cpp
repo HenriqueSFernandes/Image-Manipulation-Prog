@@ -65,7 +65,6 @@ namespace prog
       }
     }
 
-    
     void run_test(const string &script_id)
     {
       int log_fd = ::fileno(log_stream);
@@ -102,9 +101,9 @@ namespace prog
         : root_path(root_path),
           log_stream(fopen((root_path + "/" + LOG_FILE_NAME).c_str(), "w"))
     {
-
     }
-    void color_tests() {
+    void color_tests()
+    {
       const Color a(1, 2, 3);
       assert(a.red() == 1);
       assert(a.green() == 2);
@@ -114,7 +113,7 @@ namespace prog
       assert(b.red() == 0);
       assert(b.green() == 0);
       assert(b.blue() == 0);
- 
+
       const Color c(b);
       assert(c.red() == b.red());
       assert(c.green() == b.green());
@@ -179,10 +178,13 @@ int main(int argc, char **argv)
   --argc;
   ++argv;
   prog::TestDriver driver(argc == 2 ? argv[1] : ".");
-  string spec = argc >=1 ? argv[0] : "";
-  if (spec == "Color") {
+  string spec = argc >= 1 ? argv[0] : "";
+  if (spec == "Color")
+  {
     driver.color_tests();
-  } else {
+  }
+  else
+  {
     driver.test_scripts(spec);
   }
   return 0;
