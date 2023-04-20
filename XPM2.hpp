@@ -4,9 +4,10 @@
 #include <string>
 #include "Image.hpp"
 
-namespace prog {
-    Image* loadFromXPM2(const std::string &file);
+namespace prog
+{
+    Image *loadFromXPM2(const std::string &file);
 
-    void saveToXPM2(const std::string& file, const Image* img);
+    void saveToXPM2(const std::string &file, const Image *img);
 }
 #endif
