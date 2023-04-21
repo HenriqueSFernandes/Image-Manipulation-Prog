@@ -4,13 +4,13 @@ namespace prog
 {
   Image::Image(int w, int h, const Color &fill)
   {
-    this->img = new Color *[h]; //alocate memory for array
+    this->img = new Color *[h]; // alocate memory for array
     for (int i = 0; i < h; i++)
     {
-      this->img[i] = new Color[w];  //for each line create new array
+      this->img[i] = new Color[w]; // for each line create new array
       for (int j = 0; j < w; j++)
       {
-        this->img[i][j] = fill; //change color to fill color
+        this->img[i][j] = fill; // change color to fill color
       }
     }
   }
@@ -36,11 +36,11 @@ namespace prog
 
   Color &Image::at(int x, int y)
   {
-    return this->img[x][y];
+    return this->img[y][x];
   }
 
   const Color &Image::at(int x, int y) const
   {
-    return this->img[x][y];
+    return this->img[y][x];
   }
 }

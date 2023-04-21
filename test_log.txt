@@ -7,22 +7,22 @@ PNG.cpp:52:23: runtime error: signed integer overflow: -1094795586 * 3 cannot be
 stb/stb_image_write.h:1144:29: runtime error: signed integer overflow: -1094795586 * 3 cannot be represented in type 'int'
 stb/stb_image_write.h:1144:29: runtime error: signed integer overflow: -1094795586 * 1010580539 cannot be represented in type 'int'
 =================================================================
-==10118==ERROR: AddressSanitizer: requested allocation size 0xffffffffe7327dca (0xffffffffe7328dd0 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)
-    #0 0x7f268ecb4867 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
-    #1 0x55e383c8641b in stbi_write_png_to_mem stb/stb_image_write.h:1144
-    #2 0x55e383c886ad in stbi_write_png stb/stb_image_write.h:1219
-    #3 0x55e383c922ff in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /home/ricky/Desktop/projcpp/PNG.cpp:52
-    #4 0x55e383c4eba8 in prog::Script::save() /home/ricky/Desktop/projcpp/Script.cpp:85
-    #5 0x55e383c4d9ea in prog::Script::run() /home/ricky/Desktop/projcpp/Script.cpp:57
-    #6 0x55e383c3e29b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:43
-    #7 0x55e383c3f09d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:78
-    #8 0x55e383c40f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:164
-    #9 0x55e383c3d360 in main /home/ricky/Desktop/projcpp/test.cpp:188
-    #10 0x7f268dc29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+==8379==ERROR: AddressSanitizer: requested allocation size 0xffffffffe7327dca (0xffffffffe7328dd0 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)
+    #0 0x7f22b5ab4867 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
+    #1 0x55f7f609b3bb in stbi_write_png_to_mem stb/stb_image_write.h:1144
+    #2 0x55f7f609d64d in stbi_write_png stb/stb_image_write.h:1219
+    #3 0x55f7f60a729f in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /home/ricky/Desktop/projcpp/PNG.cpp:52
+    #4 0x55f7f6063b48 in prog::Script::save() /home/ricky/Desktop/projcpp/Script.cpp:85
+    #5 0x55f7f606298a in prog::Script::run() /home/ricky/Desktop/projcpp/Script.cpp:57
+    #6 0x55f7f605329b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:43
+    #7 0x55f7f605409d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:78
+    #8 0x55f7f6055f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:164
+    #9 0x55f7f6052360 in main /home/ricky/Desktop/projcpp/test.cpp:188
+    #10 0x7f22b4a29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
-==10118==HINT: if you don't care about these errors you may set allocator_may_return_null=1
+==8379==HINT: if you don't care about these errors you may set allocator_may_return_null=1
 SUMMARY: AddressSanitizer: allocation-size-too-big ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145 in __interceptor_malloc
-==10118==ABORTING
+==8379==ABORTING
 >>>> [2] basic_blank2 <<<<
 Executing command 'blank' ...
 Executing command 'save' ...
@@ -32,22 +32,22 @@ PNG.cpp:52:23: runtime error: signed integer overflow: -1094795586 * 3 cannot be
 stb/stb_image_write.h:1144:29: runtime error: signed integer overflow: -1094795586 * 3 cannot be represented in type 'int'
 stb/stb_image_write.h:1144:29: runtime error: signed integer overflow: -1094795586 * 1010580539 cannot be represented in type 'int'
 =================================================================
-==10119==ERROR: AddressSanitizer: requested allocation size 0xffffffffe7327dca (0xffffffffe7328dd0 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)
-    #0 0x7f268ecb4867 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
-    #1 0x55e383c8641b in stbi_write_png_to_mem stb/stb_image_write.h:1144
-    #2 0x55e383c886ad in stbi_write_png stb/stb_image_write.h:1219
-    #3 0x55e383c922ff in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /home/ricky/Desktop/projcpp/PNG.cpp:52
-    #4 0x55e383c4eba8 in prog::Script::save() /home/ricky/Desktop/projcpp/Script.cpp:85
-    #5 0x55e383c4d9ea in prog::Script::run() /home/ricky/Desktop/projcpp/Script.cpp:57
-    #6 0x55e383c3e29b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:43
-    #7 0x55e383c3f09d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:78
-    #8 0x55e383c40f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:164
-    #9 0x55e383c3d360 in main /home/ricky/Desktop/projcpp/test.cpp:188
-    #10 0x7f268dc29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+==8380==ERROR: AddressSanitizer: requested allocation size 0xffffffffe7327dca (0xffffffffe7328dd0 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)
+    #0 0x7f22b5ab4867 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
+    #1 0x55f7f609b3bb in stbi_write_png_to_mem stb/stb_image_write.h:1144
+    #2 0x55f7f609d64d in stbi_write_png stb/stb_image_write.h:1219
+    #3 0x55f7f60a729f in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /home/ricky/Desktop/projcpp/PNG.cpp:52
+    #4 0x55f7f6063b48 in prog::Script::save() /home/ricky/Desktop/projcpp/Script.cpp:85
+    #5 0x55f7f606298a in prog::Script::run() /home/ricky/Desktop/projcpp/Script.cpp:57
+    #6 0x55f7f605329b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:43
+    #7 0x55f7f605409d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:78
+    #8 0x55f7f6055f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:164
+    #9 0x55f7f6052360 in main /home/ricky/Desktop/projcpp/test.cpp:188
+    #10 0x7f22b4a29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
-==10119==HINT: if you don't care about these errors you may set allocator_may_return_null=1
+==8380==HINT: if you don't care about these errors you may set allocator_may_return_null=1
 SUMMARY: AddressSanitizer: allocation-size-too-big ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145 in __interceptor_malloc
-==10119==ABORTING
+==8380==ABORTING
 >>>> [3] basic_blank3 <<<<
 Executing command 'blank' ...
 Executing command 'blank' ...
@@ -58,147 +58,70 @@ PNG.cpp:52:23: runtime error: signed integer overflow: -1094795586 * 3 cannot be
 stb/stb_image_write.h:1144:29: runtime error: signed integer overflow: -1094795586 * 3 cannot be represented in type 'int'
 stb/stb_image_write.h:1144:29: runtime error: signed integer overflow: -1094795586 * 1010580539 cannot be represented in type 'int'
 =================================================================
-==10120==ERROR: AddressSanitizer: requested allocation size 0xffffffffe7327dca (0xffffffffe7328dd0 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)
-    #0 0x7f268ecb4867 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
-    #1 0x55e383c8641b in stbi_write_png_to_mem stb/stb_image_write.h:1144
-    #2 0x55e383c886ad in stbi_write_png stb/stb_image_write.h:1219
-    #3 0x55e383c922ff in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /home/ricky/Desktop/projcpp/PNG.cpp:52
-    #4 0x55e383c4eba8 in prog::Script::save() /home/ricky/Desktop/projcpp/Script.cpp:85
-    #5 0x55e383c4d9ea in prog::Script::run() /home/ricky/Desktop/projcpp/Script.cpp:57
-    #6 0x55e383c3e29b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:43
-    #7 0x55e383c3f09d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:78
-    #8 0x55e383c40f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:164
-    #9 0x55e383c3d360 in main /home/ricky/Desktop/projcpp/test.cpp:188
-    #10 0x7f268dc29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
+==8381==ERROR: AddressSanitizer: requested allocation size 0xffffffffe7327dca (0xffffffffe7328dd0 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)
+    #0 0x7f22b5ab4867 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
+    #1 0x55f7f609b3bb in stbi_write_png_to_mem stb/stb_image_write.h:1144
+    #2 0x55f7f609d64d in stbi_write_png stb/stb_image_write.h:1219
+    #3 0x55f7f60a729f in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /home/ricky/Desktop/projcpp/PNG.cpp:52
+    #4 0x55f7f6063b48 in prog::Script::save() /home/ricky/Desktop/projcpp/Script.cpp:85
+    #5 0x55f7f606298a in prog::Script::run() /home/ricky/Desktop/projcpp/Script.cpp:57
+    #6 0x55f7f605329b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:43
+    #7 0x55f7f605409d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:78
+    #8 0x55f7f6055f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:164
+    #9 0x55f7f6052360 in main /home/ricky/Desktop/projcpp/test.cpp:188
+    #10 0x7f22b4a29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
-==10120==HINT: if you don't care about these errors you may set allocator_may_return_null=1
+==8381==HINT: if you don't care about these errors you may set allocator_may_return_null=1
 SUMMARY: AddressSanitizer: allocation-size-too-big ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145 in __interceptor_malloc
-==10120==ABORTING
+==8381==ABORTING
 >>>> [4] basic_open1 <<<<
 Executing command 'open' ...
+Executing command 'save' ...
+PNG.cpp:39:45: runtime error: signed integer overflow: -1094795586 * -1094795586 cannot be represented in type 'int'
+PNG.cpp:39:49: runtime error: signed integer overflow: -1205431036 * 3 cannot be represented in type 'int'
+PNG.cpp:52:23: runtime error: signed integer overflow: -1094795586 * 3 cannot be represented in type 'int'
+stb/stb_image_write.h:1144:29: runtime error: signed integer overflow: -1094795586 * 3 cannot be represented in type 'int'
+stb/stb_image_write.h:1144:29: runtime error: signed integer overflow: -1094795586 * 1010580539 cannot be represented in type 'int'
 =================================================================
-==10121==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x61700000036e at pc 0x55e383c91aba bp 0x7ffedd7eb420 sp 0x7ffedd7eb410
-WRITE of size 3 at 0x61700000036e thread T0
-    #0 0x55e383c91ab9 in prog::loadFromPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/PNG.cpp:28
-    #1 0x55e383c4e3e2 in prog::Script::open() /home/ricky/Desktop/projcpp/Script.cpp:69
-    #2 0x55e383c4d935 in prog::Script::run() /home/ricky/Desktop/projcpp/Script.cpp:46
-    #3 0x55e383c3e29b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:43
-    #4 0x55e383c3f09d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:78
-    #5 0x55e383c40f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:164
-    #6 0x55e383c3d360 in main /home/ricky/Desktop/projcpp/test.cpp:188
-    #7 0x7f268dc29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
-    #8 0x7f268dc29e3f in __libc_start_main_impl ../csu/libc-start.c:392
-    #9 0x55e383c3cef4 in _start (/home/ricky/Desktop/projcpp/test+0x73ef4)
+==8382==ERROR: AddressSanitizer: requested allocation size 0xffffffffe7327dca (0xffffffffe7328dd0 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)
+    #0 0x7f22b5ab4867 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
+    #1 0x55f7f609b3bb in stbi_write_png_to_mem stb/stb_image_write.h:1144
+    #2 0x55f7f609d64d in stbi_write_png stb/stb_image_write.h:1219
+    #3 0x55f7f60a729f in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /home/ricky/Desktop/projcpp/PNG.cpp:52
+    #4 0x55f7f6063b48 in prog::Script::save() /home/ricky/Desktop/projcpp/Script.cpp:85
+    #5 0x55f7f606298a in prog::Script::run() /home/ricky/Desktop/projcpp/Script.cpp:57
+    #6 0x55f7f605329b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:43
+    #7 0x55f7f605409d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:78
+    #8 0x55f7f6055f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:164
+    #9 0x55f7f6052360 in main /home/ricky/Desktop/projcpp/test.cpp:188
+    #10 0x7f22b4a29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
-0x61700000036e is located 0 bytes to the right of 750-byte region [0x617000000080,0x61700000036e)
-allocated by thread T0 here:
-    #0 0x7f268ecb6337 in operator new[](unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:102
-    #1 0x55e383c4bf68 in prog::Image::Image(int, int, prog::Color const&) /home/ricky/Desktop/projcpp/Image.cpp:10
-    #2 0x55e383c9181a in prog::loadFromPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/PNG.cpp:23
-    #3 0x55e383c4e3e2 in prog::Script::open() /home/ricky/Desktop/projcpp/Script.cpp:69
-    #4 0x55e383c4d935 in prog::Script::run() /home/ricky/Desktop/projcpp/Script.cpp:46
-    #5 0x55e383c3e29b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:43
-    #6 0x55e383c3f09d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:78
-    #7 0x55e383c40f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:164
-    #8 0x55e383c3d360 in main /home/ricky/Desktop/projcpp/test.cpp:188
-    #9 0x7f268dc29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
-
-SUMMARY: AddressSanitizer: heap-buffer-overflow /home/ricky/Desktop/projcpp/PNG.cpp:28 in prog::loadFromPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&)
-Shadow bytes around the buggy address:
-  0x0c2e7fff8010: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0c2e7fff8020: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0c2e7fff8030: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0c2e7fff8040: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0c2e7fff8050: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-=>0x0c2e7fff8060: 00 00 00 00 00 00 00 00 00 00 00 00 00[06]fa fa
-  0x0c2e7fff8070: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-  0x0c2e7fff8080: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0c2e7fff8090: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0c2e7fff80a0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0c2e7fff80b0: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-Shadow byte legend (one shadow byte represents 8 application bytes):
-  Addressable:           00
-  Partially addressable: 01 02 03 04 05 06 07 
-  Heap left redzone:       fa
-  Freed heap region:       fd
-  Stack left redzone:      f1
-  Stack mid redzone:       f2
-  Stack right redzone:     f3
-  Stack after return:      f5
-  Stack use after scope:   f8
-  Global redzone:          f9
-  Global init order:       f6
-  Poisoned by user:        f7
-  Container overflow:      fc
-  Array cookie:            ac
-  Intra object redzone:    bb
-  ASan internal:           fe
-  Left alloca redzone:     ca
-  Right alloca redzone:    cb
-  Shadow gap:              cc
-==10121==ABORTING
+==8382==HINT: if you don't care about these errors you may set allocator_may_return_null=1
+SUMMARY: AddressSanitizer: allocation-size-too-big ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145 in __interceptor_malloc
+==8382==ABORTING
 >>>> [5] basic_open2 <<<<
 Executing command 'open' ...
 Executing command 'open' ...
+Executing command 'save' ...
+PNG.cpp:39:45: runtime error: signed integer overflow: -1094795586 * -1094795586 cannot be represented in type 'int'
+PNG.cpp:39:49: runtime error: signed integer overflow: -1205431036 * 3 cannot be represented in type 'int'
+PNG.cpp:52:23: runtime error: signed integer overflow: -1094795586 * 3 cannot be represented in type 'int'
+stb/stb_image_write.h:1144:29: runtime error: signed integer overflow: -1094795586 * 3 cannot be represented in type 'int'
+stb/stb_image_write.h:1144:29: runtime error: signed integer overflow: -1094795586 * 1010580539 cannot be represented in type 'int'
 =================================================================
-==10122==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x61a000000b30 at pc 0x55e383c4c9ef bp 0x7ffedd7eb3f0 sp 0x7ffedd7eb3e0
-READ of size 8 at 0x61a000000b30 thread T0
-    #0 0x55e383c4c9ee in prog::Image::at(int, int) /home/ricky/Desktop/projcpp/Image.cpp:38
-    #1 0x55e383c91a33 in prog::loadFromPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/PNG.cpp:28
-    #2 0x55e383c4e3e2 in prog::Script::open() /home/ricky/Desktop/projcpp/Script.cpp:69
-    #3 0x55e383c4d935 in prog::Script::run() /home/ricky/Desktop/projcpp/Script.cpp:46
-    #4 0x55e383c3e29b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:43
-    #5 0x55e383c3f09d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:78
-    #6 0x55e383c40f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:164
-    #7 0x55e383c3d360 in main /home/ricky/Desktop/projcpp/test.cpp:188
-    #8 0x7f268dc29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
-    #9 0x7f268dc29e3f in __libc_start_main_impl ../csu/libc-start.c:392
-    #10 0x55e383c3cef4 in _start (/home/ricky/Desktop/projcpp/test+0x73ef4)
+==8383==ERROR: AddressSanitizer: requested allocation size 0xffffffffe7327dca (0xffffffffe7328dd0 after adjustments for alignment, red zones etc.) exceeds maximum supported size of 0x10000000000 (thread T0)
+    #0 0x7f22b5ab4867 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
+    #1 0x55f7f609b3bb in stbi_write_png_to_mem stb/stb_image_write.h:1144
+    #2 0x55f7f609d64d in stbi_write_png stb/stb_image_write.h:1219
+    #3 0x55f7f60a729f in prog::saveToPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&, prog::Image const*) /home/ricky/Desktop/projcpp/PNG.cpp:52
+    #4 0x55f7f6063b48 in prog::Script::save() /home/ricky/Desktop/projcpp/Script.cpp:85
+    #5 0x55f7f606298a in prog::Script::run() /home/ricky/Desktop/projcpp/Script.cpp:57
+    #6 0x55f7f605329b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:43
+    #7 0x55f7f605409d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:78
+    #8 0x55f7f6055f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:164
+    #9 0x55f7f6052360 in main /home/ricky/Desktop/projcpp/test.cpp:188
+    #10 0x7f22b4a29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
 
-0x61a000000b30 is located 0 bytes to the right of 1200-byte region [0x61a000000680,0x61a000000b30)
-allocated by thread T0 here:
-    #0 0x7f268ecb6337 in operator new[](unsigned long) ../../../../src/libsanitizer/asan/asan_new_delete.cpp:102
-    #1 0x55e383c4beae in prog::Image::Image(int, int, prog::Color const&) /home/ricky/Desktop/projcpp/Image.cpp:7
-    #2 0x55e383c9181a in prog::loadFromPNG(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/PNG.cpp:23
-    #3 0x55e383c4e3e2 in prog::Script::open() /home/ricky/Desktop/projcpp/Script.cpp:69
-    #4 0x55e383c4d935 in prog::Script::run() /home/ricky/Desktop/projcpp/Script.cpp:46
-    #5 0x55e383c3e29b in prog::TestDriver::test_script(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:43
-    #6 0x55e383c3f09d in prog::TestDriver::run_test(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:78
-    #7 0x55e383c40f13 in prog::TestDriver::test_scripts(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) /home/ricky/Desktop/projcpp/test.cpp:164
-    #8 0x55e383c3d360 in main /home/ricky/Desktop/projcpp/test.cpp:188
-    #9 0x7f268dc29d8f in __libc_start_call_main ../sysdeps/nptl/libc_start_call_main.h:58
-
-SUMMARY: AddressSanitizer: heap-buffer-overflow /home/ricky/Desktop/projcpp/Image.cpp:38 in prog::Image::at(int, int)
-Shadow bytes around the buggy address:
-  0x0c347fff8110: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0c347fff8120: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0c347fff8130: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0c347fff8140: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-  0x0c347fff8150: 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
-=>0x0c347fff8160: 00 00 00 00 00 00[fa]fa fa fa fa fa fa fa fa fa
-  0x0c347fff8170: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-  0x0c347fff8180: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-  0x0c347fff8190: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-  0x0c347fff81a0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-  0x0c347fff81b0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
-Shadow byte legend (one shadow byte represents 8 application bytes):
-  Addressable:           00
-  Partially addressable: 01 02 03 04 05 06 07 
-  Heap left redzone:       fa
-  Freed heap region:       fd
-  Stack left redzone:      f1
-  Stack mid redzone:       f2
-  Stack right redzone:     f3
-  Stack after return:      f5
-  Stack use after scope:   f8
-  Global redzone:          f9
-  Global init order:       f6
-  Poisoned by user:        f7
-  Container overflow:      fc
-  Array cookie:            ac
-  Intra object redzone:    bb
-  ASan internal:           fe
-  Left alloca redzone:     ca
-  Right alloca redzone:    cb
-  Shadow gap:              cc
-==10122==ABORTING
+==8383==HINT: if you don't care about these errors you may set allocator_may_return_null=1
+SUMMARY: AddressSanitizer: allocation-size-too-big ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145 in __interceptor_malloc
+==8383==ABORTING
