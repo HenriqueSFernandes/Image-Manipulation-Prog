@@ -8,7 +8,7 @@ namespace prog
   {
   private:
     int width_, height_;
-    Color **img;
+    Color **img; // 2d dynamic array
 
   public:
     Image(int w, int h, const Color &fill = {255, 255, 255});

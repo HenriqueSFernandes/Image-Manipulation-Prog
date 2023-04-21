@@ -4,13 +4,13 @@ namespace prog
 {
   Image::Image(int w, int h, const Color &fill)
   {
-    this->img = new Color *[h];
+    this->img = new Color *[h]; //alocate memory for array
     for (int i = 0; i < h; i++)
     {
-      this->img[i] = new Color[w];
+      this->img[i] = new Color[w];  //for each line create new array
       for (int j = 0; j < w; j++)
       {
-        this->img[i][j] = fill;
+        this->img[i][j] = fill; //change color to fill color
       }
     }
   }
@@ -33,9 +33,6 @@ namespace prog
   {
     return this->height_;
   }
-
-  // TODO: remove this DUMMY_color variable once you have appropriate fields for representing image pixels.
-  Color DUMMY_color;
 
   Color &Image::at(int x, int y)
   {
