@@ -4,6 +4,8 @@ namespace prog
 {
   Image::Image(int w, int h, const Color &fill)
   {
+    this->height_ = h;
+    this->width_ = w;
     this->img = new Color *[h]; // alocate memory for array
     for (int i = 0; i < h; i++)
     {
