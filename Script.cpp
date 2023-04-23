@@ -57,6 +57,11 @@ namespace prog
                 save();
                 continue;
             }
+            if (command == "invert")
+            {
+                invert();
+                continue;
+            }
             // TODO ...
         }
     }
@@ -83,5 +88,20 @@ namespace prog
         string filename;
         input >> filename;
         saveToPNG(filename, image);
+    }
+
+    void Script::invert()
+    {
+        // Iterate over each pixel and invert it.
+        for (int i = 0; i < this->image->height(); i++)
+        {
+            for (int j = 0; j < this->image->width(); j++)
+            {
+                Color *curr_pixel = &this->image->at(j, i);
+                curr_pixel->red() = 255 - curr_pixel->red();
+                curr_pixel->green() = 255 - curr_pixel->green();
+                curr_pixel->blue() = 255 - curr_pixel->blue();
+            }
+        }
     }
 }
