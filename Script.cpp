@@ -19,6 +19,17 @@ namespace prog
         return input;
     }
 
+    // Use to compare colors.
+    bool operator==(const Color &color1, const Color &color2)
+    {
+        return (color1.red() == color2.red() && color1.green() == color2.green() && color1.blue() == color2.blue());
+    }
+
+    bool operator!=(const Color &color1, const Color &color2)
+    {
+        return (color1.red() != color2.red() || color1.green() != color2.green() || color1.blue() != color2.blue());
+    }
+
     Script::Script(const string &filename) : image(nullptr), input(filename)
     {
     }
@@ -57,6 +68,41 @@ namespace prog
                 save();
                 continue;
             }
+            if (command == "invert")
+            {
+                invert();
+                continue;
+            }
+            if (command == "to_gray_scale")
+            {
+                to_gray_scale();
+                continue;
+            }
+            if (command == "replace")
+            {
+                replace();
+                continue;
+            }
+            if (command == "h_mirror")
+            {
+                h_mirror();
+                continue;
+            }
+            if (command == "v_mirror")
+            {
+                v_mirror();
+                continue;
+            }
+            if (command == "fill")
+            {
+                fill();
+                continue;
+            }
+            if (command == "add")
+            {
+                add();
+                continue;
+            }
             // TODO ...
         }
     }
@@ -83,5 +129,130 @@ namespace prog
         string filename;
         input >> filename;
         saveToPNG(filename, image);
+    }
+
+    void Script::invert()
+    {
+        // Iterate over each pixel and invert it.
+        for (int i = 0; i < this->image->height(); i++)
+        {
+            for (int j = 0; j < this->image->width(); j++)
+            {
+                Color *curr_pixel = &this->image->at(j, i);
+                curr_pixel->red() = 255 - curr_pixel->red();
+                curr_pixel->green() = 255 - curr_pixel->green();
+                curr_pixel->blue() = 255 - curr_pixel->blue();
+            }
+        }
+    }
+
+    void Script::to_gray_scale()
+    {
+        // Iterate over each pixel and convert it to gray scale using (r + g + b) / 3
+        for (int i = 0; i < this->image->height(); i++)
+        {
+            for (int j = 0; j < this->image->width(); j++)
+            {
+                Color *curr_pixel = &this->image->at(j, i);
+                rgb_value final_color = (curr_pixel->red() + curr_pixel->green() + curr_pixel->blue()) / 3;
+                curr_pixel->red() = final_color;
+                curr_pixel->green() = final_color;
+                curr_pixel->blue() = final_color;
+            }
+        }
+    }
+
+    void Script::replace()
+    {
+        Color color1, color2;
+        input >> color1 >> color2;
+        for (int i = 0; i < this->image->height(); i++)
+        {
+            for (int j = 0; j < this->image->width(); j++)
+            {
+                Color *curr_pixel = &this->image->at(j, i);
+                cout << curr_pixel->red() << " " << curr_pixel->green() << " " << curr_pixel->blue() << "\n";
+                if (*curr_pixel == color1)
+                {
+                    cout << "igual\n";
+                    *curr_pixel = color2;
+                }
+            }
+        }
+    }
+
+    void Script::h_mirror()
+    {
+        // Iterate over width / 2 and swap it with the corresponding pixel
+        for (int i = 0; i < this->image->height(); i++)
+        {
+            for (int j = 0; j < (this->image->width() / 2); j++)
+            {
+                Color *pixel1 = &this->image->at(j, i);
+                Color *pixel2 = &this->image->at(this->image->width() - 1 - j, i);
+                Color temp = *pixel2;
+                *pixel2 = *pixel1;
+                *pixel1 = temp;
+            }
+        }
+    }
+    void Script::v_mirror()
+    {
+        // Iterate over height / 2 and swap it with the corresponding pixel
+        for (int i = 0; i < this->image->height() / 2; i++)
+        {
+            for (int j = 0; j < this->image->width(); j++)
+            {
+                Color *pixel1 = &this->image->at(j, i);
+                Color *pixel2 = &this->image->at(j, this->image->height() - 1 - i);
+                Color safe = *pixel2;
+                *pixel2 = *pixel1;
+                *pixel1 = safe;
+            }
+        }
+    }
+
+    void Script::fill()
+    {
+        // Iterate over each pixel ranging from y until y + h and from x until x + w and replace it with the fill color.
+        int x, y, w, h;
+        Color c;
+        input >> x >> y >> w >> h >> c;
+        for (int i = y; i < (y + h); i++)
+        {
+            for (int j = x; j < (w + x); j++)
+            {
+                Color *curr_pixel = &this->image->at(j, i);
+                curr_pixel->show();
+                curr_pixel->red() = c.red();
+                curr_pixel->green() = c.green();
+                curr_pixel->blue() = c.blue();
+            }
+        }
+    }
+
+    void Script::add()
+    {
+        // Iterate over each pixel of the new image, if it's different from the neutral color add it to the original color
+        string filename;
+        Color c;
+        int x, y;
+        input >> filename;
+        input >> c;
+        input >> x >> y;
+        Image *loaded_img = loadFromPNG(filename);
+        int w = loaded_img->width();
+        int h = loaded_img->height();
+        for (int i = 0; i < h; i++)
+        {
+            for (int j = 0; j < w; j++)
+            {
+                if (c != loaded_img->at(j, i))
+                {
+                    this->image->at(j + x, i + y) = loaded_img->at(j, i);
+                }
+            }
+        }
+        delete loaded_img;
     }
 }
