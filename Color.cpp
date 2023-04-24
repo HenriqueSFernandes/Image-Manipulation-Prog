@@ -1,5 +1,5 @@
 #include "Color.hpp"
-
+#include <iostream>
 namespace prog
 {
     Color::Color()
@@ -8,7 +8,7 @@ namespace prog
         this->green_ = 0;
         this->blue_ = 0;
     }
-    
+
     Color::Color(const Color &other)
     {
         this->red_ = other.red_;
@@ -51,5 +51,10 @@ namespace prog
     rgb_value &Color::blue()
     {
         return this->blue_;
+    }
+
+    void Color::show() const
+    {
+        std::cout << "{" << this->red_ << ", " << this->green_ << ", " << this->blue_ << "}\n";
     }
 }
