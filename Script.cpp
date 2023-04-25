@@ -266,6 +266,7 @@ namespace prog
         int x, y, w, h;
         input >> x >> y >> w >> h;
         Image *new_img = new Image(w, h);
+        // Iterate over each pixel from the new image and change it to match the original image
         for (int i = 0; i < h; i++)
         {
             for (int j = 0; j < w; j++)
