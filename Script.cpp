@@ -174,7 +174,6 @@ namespace prog
                 cout << curr_pixel->red() << " " << curr_pixel->green() << " " << curr_pixel->blue() << "\n";
                 if (*curr_pixel == color1)
                 {
-                    cout << "igual\n";
                     *curr_pixel = color2;
                 }
             }
