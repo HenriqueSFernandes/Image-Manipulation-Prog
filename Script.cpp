@@ -103,6 +103,11 @@ namespace prog
                 add();
                 continue;
             }
+            if (command == "crop")
+            {
+                crop();
+                continue;
+            }
             // TODO ...
         }
     }
@@ -253,5 +258,23 @@ namespace prog
             }
         }
         delete loaded_img;
+    }
+
+    void Script::crop()
+    {
+        // Create new image to hold the cropped image, then replace the original image with the cropped image
+        int x, y, w, h;
+        input >> x >> y >> w >> h;
+        Image *new_img = new Image(w, h);
+        for (int i = 0; i < h; i++)
+        {
+            for (int j = 0; j < w; j++)
+            {
+                new_img->at(j, i) = this->image->at(j + x, i + y);
+            }
+        }
+        Image *temporary_addr = this->image;
+        this->image = new_img;
+        delete temporary_addr;
     }
 }
