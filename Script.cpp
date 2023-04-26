@@ -103,9 +103,25 @@ namespace prog
                 add();
                 continue;
             }
-            // TODO ...
+            if (command == "crop")
+            {
+                crop();
+                continue;
+            }
+            if (command == "rotate_left")
+            {
+                rotate_left();
+                continue;
+            }
+            if (command == "rotate_right")
+            {
+                rotate_right();
+                continue;
+            }
         }
     }
+    // TODO ...
+
     void Script::open()
     {
         // Replace current image (if any) with image read from PNG file.
@@ -253,5 +269,63 @@ namespace prog
             }
         }
         delete loaded_img;
+    }
+
+    void Script::crop()
+    {
+        // Create new image to hold the cropped image, then replace the original image with the cropped image
+        int x, y, w, h;
+        input >> x >> y >> w >> h;
+        Image *new_img = new Image(w, h);
+        // Iterate over each pixel from the new image and change it to match the original image
+        for (int i = 0; i < h; i++)
+        {
+            for (int j = 0; j < w; j++)
+            {
+                new_img->at(j, i) = this->image->at(j + x, i + y);
+            }
+        }
+        Image *temporary_addr = this->image;
+        this->image = new_img;
+        delete temporary_addr;
+    }
+
+    void Script::rotate_left()
+    {
+        // Transpose the matrix (swap the coordinates of each pixel) and then mirror it vertically
+        int h = this->image->height();
+        int w = this->image->width();
+        Image *new_img = new Image(h, w);
+        for (int i = 0; i < h; i++)
+        {
+            for (int j = 0; j < w; j++)
+            {
+                new_img->at(i, j) = this->image->at(j, i);
+            }
+        }
+        Image *temporary_addr = this->image;
+        this->image = new_img;
+        delete temporary_addr;
+        this->v_mirror();
+    }
+
+    void Script::rotate_right()
+    {
+
+        // Transpose the matrix (swap the coordinates of each pixel) and then mirror it horizontally
+        int h = this->image->height();
+        int w = this->image->width();
+        Image *new_img = new Image(h, w);
+        for (int i = 0; i < h; i++)
+        {
+            for (int j = 0; j < w; j++)
+            {
+                new_img->at(i, j) = this->image->at(j, i);
+            }
+        }
+        Image *temporary_addr = this->image;
+        this->image = new_img;
+        delete temporary_addr;
+        this->h_mirror();
     }
 }
