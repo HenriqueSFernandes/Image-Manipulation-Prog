@@ -108,9 +108,20 @@ namespace prog
                 crop();
                 continue;
             }
-            // TODO ...
+            if (command == "rotate_left")
+            {
+                rotate_left();
+                continue;
+            }
+            if (command == "rotate_right")
+            {
+                rotate_right();
+                continue;
+            }
         }
     }
+    // TODO ...
+
     void Script::open()
     {
         // Replace current image (if any) with image read from PNG file.
@@ -277,5 +288,44 @@ namespace prog
         Image *temporary_addr = this->image;
         this->image = new_img;
         delete temporary_addr;
+    }
+
+    void Script::rotate_left()
+    {
+        // Transpose the matrix (swap the coordinates of each pixel) and then mirror it vertically
+        int h = this->image->height();
+        int w = this->image->width();
+        Image *new_img = new Image(h, w);
+        for (int i = 0; i < h; i++)
+        {
+            for (int j = 0; j < w; j++)
+            {
+                new_img->at(i, j) = this->image->at(j, i);
+            }
+        }
+        Image *temporary_addr = this->image;
+        this->image = new_img;
+        delete temporary_addr;
+        this->v_mirror();
+    }
+
+    void Script::rotate_right()
+    {
+
+        // Transpose the matrix (swap the coordinates of each pixel) and then mirror it horizontally
+        int h = this->image->height();
+        int w = this->image->width();
+        Image *new_img = new Image(h, w);
+        for (int i = 0; i < h; i++)
+        {
+            for (int j = 0; j < w; j++)
+            {
+                new_img->at(i, j) = this->image->at(j, i);
+            }
+        }
+        Image *temporary_addr = this->image;
+        this->image = new_img;
+        delete temporary_addr;
+        this->h_mirror();
     }
 }
