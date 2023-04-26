@@ -285,9 +285,8 @@ namespace prog
                 new_img->at(j, i) = this->image->at(j + x, i + y);
             }
         }
-        Image *temporary_addr = this->image;
+        delete this->image;
         this->image = new_img;
-        delete temporary_addr;
     }
 
     void Script::rotate_left()
@@ -303,9 +302,8 @@ namespace prog
                 new_img->at(i, j) = this->image->at(j, i);
             }
         }
-        Image *temporary_addr = this->image;
+        delete this->image;
         this->image = new_img;
-        delete temporary_addr;
         this->v_mirror();
     }
 
@@ -323,9 +321,8 @@ namespace prog
                 new_img->at(i, j) = this->image->at(j, i);
             }
         }
-        Image *temporary_addr = this->image;
+        delete this->image;
         this->image = new_img;
-        delete temporary_addr;
         this->h_mirror();
     }
 }
