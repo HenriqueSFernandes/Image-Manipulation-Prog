@@ -338,23 +338,25 @@ namespace prog
         this->h_mirror();
     }
 
-    Color median(vector<Color> neighboors)
+    Color median(vector<Color> neighbors)
     {
-        // TODO: Comment this
-        int len = neighboors.size();
+        // Get length of the vector and initialize arrays to store each rgb component.
+        int len = neighbors.size();
         rgb_value *reds = new rgb_value[len];
         rgb_value *greens = new rgb_value[len];
         rgb_value *blues = new rgb_value[len];
+        // Add each rgb component to the respective array.
         for (int i = 0; i < len; i++)
         {
-            reds[i] = neighboors[i].red();
-            greens[i] = neighboors[i].green();
-            blues[i] = neighboors[i].blue();
+            reds[i] = neighbors[i].red();
+            greens[i] = neighbors[i].green();
+            blues[i] = neighbors[i].blue();
         }
+        // Sort the arrays
         sort(reds, reds + len);
         sort(greens, greens + len);
         sort(blues, blues + len);
-
+        // If there are an odd number of elements just return the middle element
         if (len % 2 != 0)
         {
             rgb_value red = reds[len / 2];
@@ -365,6 +367,7 @@ namespace prog
             delete[] blues;
             return {red, green, blue};
         }
+        // Otherwise return the mean of the two middle elements
         else
         {
             rgb_value red = (reds[len / 2 - 1] + reds[len / 2]) / 2;
@@ -379,25 +382,27 @@ namespace prog
 
     void Script::median_filter()
     {
-        // TODO: Comment this
         int ws;
         input >> ws;
         int h = this->image->height();
         int w = this->image->width();
         Image *new_img = new Image(w, h);
+        // Iterate over each pixel of the original image.
         for (int y = 0; y < h; y++)
         {
             for (int x = 0; x < w; x++)
             {
-                vector<Color> neighboors;
+                // Get all neighbors of that pixel and put them in a vector.
+                vector<Color> neighbors;
                 for (int ny = max(0, y - ws / 2); ny <= min(h - 1, y + ws / 2); ny++)
                 {
                     for (int nx = max(0, x - ws / 2); nx <= min(w - 1, x + ws / 2); nx++)
                     {
-                        neighboors.push_back(this->image->at(nx, ny));
+                        neighbors.push_back(this->image->at(nx, ny));
                     }
                 }
-                Color pix = median(neighboors);
+                // Calculate the median value of the vector and replace the original pixel with that value.
+                Color pix = median(neighbors);
                 new_img->at(x, y) = pix;
             }
         }
