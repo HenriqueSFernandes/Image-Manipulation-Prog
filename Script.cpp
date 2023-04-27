@@ -131,9 +131,9 @@ namespace prog
                 median_filter();
                 continue;
             }
+            // TODO ...
         }
     }
-    // TODO ...
 
     void Script::open()
     {
@@ -379,7 +379,7 @@ namespace prog
 
     void Script::median_filter()
     {
-        //TODO: Comment this
+        // TODO: Comment this
         int ws;
         input >> ws;
         int h = this->image->height();
