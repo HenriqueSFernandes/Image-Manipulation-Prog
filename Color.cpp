@@ -52,9 +52,4 @@ namespace prog
     {
         return this->blue_;
     }
-
-    void Color::show() const
-    {
-        std::cout << "{" << this->red_ << ", " << this->green_ << ", " << this->blue_ << "}\n";
-    }
 }

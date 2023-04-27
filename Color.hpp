@@ -19,7 +19,6 @@ namespace prog
     rgb_value &green();
     rgb_value blue() const;
     rgb_value &blue();
-    void show() const;
   };
 }
 #endif
