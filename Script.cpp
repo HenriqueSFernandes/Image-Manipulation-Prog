@@ -340,6 +340,7 @@ namespace prog
 
     Color median(vector<Color> neighboors)
     {
+        // TODO: Comment this
         int len = neighboors.size();
         rgb_value *reds = new rgb_value[len];
         rgb_value *greens = new rgb_value[len];
@@ -356,16 +357,29 @@ namespace prog
 
         if (len % 2 != 0)
         {
-            return {reds[len / 2], greens[len / 2], blues[len / 2]};
+            rgb_value red = reds[len / 2];
+            rgb_value green = greens[len / 2];
+            rgb_value blue = blues[len / 2];
+            delete[] reds;
+            delete[] greens;
+            delete[] blues;
+            return {red, green, blue};
         }
         else
         {
-            return {reds[((len / 2 - 1) + (len / 2)) / 2], greens[((len / 2 - 1) + (len / 2)) / 2], blues[((len / 2 - 1) + (len / 2)) / 2]};
+            rgb_value red = (reds[len / 2 - 1] + reds[len / 2]) / 2;
+            rgb_value green = (greens[len / 2 - 1] + greens[len / 2]) / 2;
+            rgb_value blue = (blues[len / 2 - 1] + blues[len / 2]) / 2;
+            delete[] reds;
+            delete[] greens;
+            delete[] blues;
+            return {red, green, blue};
         }
     }
 
     void Script::median_filter()
     {
+        //TODO: Comment this
         int ws;
         input >> ws;
         int h = this->image->height();
