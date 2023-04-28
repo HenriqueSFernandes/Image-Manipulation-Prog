@@ -437,8 +437,10 @@ namespace prog
         {
             return;
         }
+        // Read image attributes.
         int width, height, n_colors, char_per_pixel;
         file >> width >> height >> n_colors >> char_per_pixel;
+        // Create a map that matches each character with a color.
         map<char, Color> map_colors;
         for (int i = 0; i < n_colors; i++)
         {
@@ -451,6 +453,7 @@ namespace prog
         }
         vector<vector<Color>> final_colors;
         this->image = new Image(width, height);
+        // Iterate over each character and add the corresponding color to the image.
         for (int i = 0; i < height; i++)
         {
             string line;
