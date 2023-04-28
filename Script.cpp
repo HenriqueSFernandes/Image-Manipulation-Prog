@@ -1,7 +1,9 @@
 #include <iostream>
-#include <fstream>
 #include <vector>
+#include <sstream>
 #include <algorithm>
+#include <fstream>
+#include <map>
 #include "Script.hpp"
 #include "PNG.hpp"
 #include "XPM2.hpp"
@@ -129,6 +131,11 @@ namespace prog
             if (command == "median_filter")
             {
                 median_filter();
+                continue;
+            }
+            if (command == "xpm2_open")
+            {
+                xpm2_open();
                 continue;
             }
             // TODO ...
@@ -408,5 +415,54 @@ namespace prog
         }
         delete this->image;
         this->image = new_img;
+    }
+
+    Color hexa_to_rgb(const string &hexa_color)
+    {
+        // Read 2 characters at a time from the string and interpret them as base16.
+        rgb_value red = stoi(hexa_color.substr(1, 2), nullptr, 16);
+        rgb_value green = stoi(hexa_color.substr(3, 2), nullptr, 16);
+        rgb_value blue = stoi(hexa_color.substr(5, 2), nullptr, 16);
+        return {red, green, blue};
+    }
+
+    void Script::xpm2_open()
+    {
+        string filename;
+        input >> filename;
+        ifstream file(filename);
+        string format;
+        getline(file, format);
+        if (format != "! XPM2")
+        {
+            return;
+        }
+        // Read image attributes.
+        int width, height, n_colors, char_per_pixel;
+        file >> width >> height >> n_colors >> char_per_pixel;
+        // Create a map that matches each character with a color.
+        map<char, Color> map_colors;
+        for (int i = 0; i < n_colors; i++)
+        {
+            char c;
+            string color;
+            file >> c;
+            file.ignore(2);
+            file >> color;
+            map_colors[c] = hexa_to_rgb(color);
+        }
+        vector<vector<Color>> final_colors;
+        this->image = new Image(width, height);
+        // Iterate over each character and add the corresponding color to the image.
+        for (int i = 0; i < height; i++)
+        {
+            string line;
+            file >> line;
+            for (int j = 0; j < width; j++)
+            {
+                this->image->at(j, i) = map_colors[line[j]];
+            }
+        }
+        file.close();
     }
 }
