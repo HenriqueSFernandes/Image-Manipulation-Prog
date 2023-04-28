@@ -3,6 +3,7 @@
 #include <sstream>
 #include <algorithm>
 #include <fstream>
+#include <map>
 #include "Script.hpp"
 #include "PNG.hpp"
 #include "XPM2.hpp"
@@ -432,14 +433,33 @@ namespace prog
         ifstream file(filename);
         string format;
         getline(file, format);
-        // TODO: Is this necessary?
         if (format != "! XPM2")
         {
             return;
         }
         int width, height, n_colors, char_per_pixel;
         file >> width >> height >> n_colors >> char_per_pixel;
-        // TODO: Finish this (map or vector of pairs?)
+        map<char, Color> map_colors;
+        for (int i = 0; i < n_colors; i++)
+        {
+            char c;
+            string color;
+            file >> c;
+            file.ignore(2);
+            file >> color;
+            map_colors[c] = hexa_to_rgb(color);
+        }
+        vector<vector<Color>> final_colors;
+        this->image = new Image(width, height);
+        for (int i = 0; i < height; i++)
+        {
+            string line;
+            file >> line;
+            for (int j = 0; j < width; j++)
+            {
+                this->image->at(j, i) = map_colors[line[j]];
+            }
+        }
         file.close();
     }
 }
