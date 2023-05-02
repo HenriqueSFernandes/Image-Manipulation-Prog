@@ -394,7 +394,6 @@ namespace prog
         int h = this->image->height();
         int w = this->image->width();
         Image *new_img = new Image(w, h);
-        // Iterate over each pixel of the original image.
         for (int y = 0; y < h; y++)
         {
             for (int x = 0; x < w; x++)
@@ -438,8 +437,8 @@ namespace prog
             return;
         }
         // Read image attributes.
-        int width, height, n_colors, char_per_pixel;
-        file >> width >> height >> n_colors >> char_per_pixel;
+        int width, height, n_colors, char_per_color;
+        file >> width >> height >> n_colors >> char_per_color;
         // Create a map that matches each character with a color.
         map<char, Color> map_colors;
         for (int i = 0; i < n_colors; i++)
@@ -451,7 +450,6 @@ namespace prog
             file >> color;
             map_colors[c] = hexa_to_rgb(color);
         }
-        vector<vector<Color>> final_colors;
         this->image = new Image(width, height);
         // Iterate over each character and add the corresponding color to the image.
         for (int i = 0; i < height; i++)
