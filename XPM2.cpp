@@ -3,6 +3,9 @@
 #include <algorithm>
 #include <fstream>
 #include <map>
+#include <sstream>
+#include <iomanip>
+#include <iostream> //delete
 
 using namespace std;
 namespace prog
@@ -14,6 +17,18 @@ namespace prog
         rgb_value green = stoi(hexa_color.substr(3, 2), nullptr, 16);
         rgb_value blue = stoi(hexa_color.substr(5, 2), nullptr, 16);
         return {red, green, blue};
+    }
+
+    string rgb_to_hexa(const Color &c)
+    {
+        stringstream ss;
+        ss << setfill('0') << setw(2) << hex << static_cast<int>(c.red()) << setfill('0') << setw(2) << static_cast<int>(c.green()) << setfill('0') << setw(2) << static_cast<int>(c.blue());
+        string s = ss.str();
+        for (char& i : s)
+        {
+            i = toupper(i);
+        }
+        return "#" + s;
     }
     Image *loadFromXPM2(const std::string &filename)
     {
@@ -53,7 +68,37 @@ namespace prog
         return img;
     }
 
-    void saveToXPM2(const std::string &file, const Image *image)
+    void saveToXPM2(const std::string &filename, const Image *image)
     {
+        ofstream file(filename);
+        map<string, char> map_colors;
+        int width = image->width();
+        int height = image->height();
+        stringstream ss;
+        int n_colors = 0;
+        string curr_pixel;
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                curr_pixel = rgb_to_hexa(image->at(x, y));
+                if (map_colors.find(curr_pixel) == map_colors.end())
+                {
+                    n_colors++;
+                    map_colors[curr_pixel] = 'a' - 1 + n_colors;
+                }
+
+                ss << map_colors[curr_pixel];
+            }
+            ss << '\n';
+        }
+        file << "! XPM2\n";
+        file << width << " " << height << " " << n_colors << " 1\n";
+        for (auto i : map_colors)
+        {
+            file << i.second << " c " << i.first << '\n';
+        }
+        file << ss.str();
+        file.close();
     }
 }
