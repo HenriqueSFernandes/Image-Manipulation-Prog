@@ -24,7 +24,7 @@ namespace prog
         stringstream ss;
         ss << setfill('0') << setw(2) << hex << static_cast<int>(c.red()) << setfill('0') << setw(2) << static_cast<int>(c.green()) << setfill('0') << setw(2) << static_cast<int>(c.blue());
         string s = ss.str();
-        for (char& i : s)
+        for (char &i : s)
         {
             i = toupper(i);
         }
