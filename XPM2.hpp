@@ -8,8 +8,10 @@ namespace prog
 {
     Image *loadFromXPM2(const std::string &filename);
 
-    void saveToXPM2(const std::string &file, const Image *img);
+    void saveToXPM2(const std::string &filename, const Image *img);
 
     Color hexa_to_rgb(const std::string &hexa_color);
+
+    std::string rgb_to_hexa(const Color &color);
 }
 #endif
