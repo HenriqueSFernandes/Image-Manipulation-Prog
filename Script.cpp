@@ -137,6 +137,7 @@ namespace prog
             {
                 string filename;
                 input >> filename;
+                delete this->image;
                 this->image = loadFromXPM2(filename);
                 continue;
             }
