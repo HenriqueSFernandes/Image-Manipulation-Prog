@@ -5,7 +5,7 @@ namespace prog
   {
     this->height_ = h;
     this->width_ = w;
-    this->img = new Color *[h]; // alocate memory for array
+    this->img = new Color *[h]; // allocate memory for array
     for (int i = 0; i < h; i++)
     {
       this->img[i] = new Color[w]; // for each line create new array

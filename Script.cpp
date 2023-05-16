@@ -137,10 +137,17 @@ namespace prog
             {
                 string filename;
                 input >> filename;
+                delete this->image;
                 this->image = loadFromXPM2(filename);
                 continue;
             }
-            // TODO ...
+            if (command == "xpm2_save")
+            {
+                string filename;
+                input >> filename;
+                saveToXPM2(filename, this->image);
+                continue;
+            }
         }
     }
 
