@@ -34,6 +34,7 @@ namespace prog
         return (color1.red() != color2.red() || color1.green() != color2.green() || color1.blue() != color2.blue());
     }
 
+    // Use to print colors.
     ostream &operator<<(ostream &os, const Color &c)
     {
         os << '{' << static_cast<int>(c.red()) << ',' << static_cast<int>(c.green()) << ',' << static_cast<int>(c.blue()) << "}\n";
@@ -193,7 +194,7 @@ namespace prog
 
     void Script::to_gray_scale()
     {
-        // Iterate over each pixel and convert it to gray scale using (r + g + b) / 3
+        // Iterate over each pixel and convert it to gray scale using (r + g + b) / 3.
         for (int i = 0; i < this->image->height(); i++)
         {
             for (int j = 0; j < this->image->width(); j++)
@@ -211,12 +212,13 @@ namespace prog
     {
         Color color1, color2;
         input >> color1 >> color2;
+        // Iterate over each pixel.
         for (int i = 0; i < this->image->height(); i++)
         {
             for (int j = 0; j < this->image->width(); j++)
             {
+                // Get current pixel, and replace it if it matches the given color.
                 Color *curr_pixel = &this->image->at(j, i);
-                cout << curr_pixel->red() << " " << curr_pixel->green() << " " << curr_pixel->blue() << "\n";
                 if (*curr_pixel == color1)
                 {
                     *curr_pixel = color2;
@@ -227,7 +229,7 @@ namespace prog
 
     void Script::h_mirror()
     {
-        // Iterate over width / 2 and swap it with the corresponding pixel
+        // Iterate over the left half of the image and swap it with the corresponding pixel of the right half.
         for (int i = 0; i < this->image->height(); i++)
         {
             for (int j = 0; j < (this->image->width() / 2); j++)
@@ -242,16 +244,16 @@ namespace prog
     }
     void Script::v_mirror()
     {
-        // Iterate over height / 2 and swap it with the corresponding pixel
+        // Iterate over the top half of the image and swap it with the corresponding pixel of the bottom half.
         for (int i = 0; i < this->image->height() / 2; i++)
         {
             for (int j = 0; j < this->image->width(); j++)
             {
                 Color *pixel1 = &this->image->at(j, i);
                 Color *pixel2 = &this->image->at(j, this->image->height() - 1 - i);
-                Color safe = *pixel2;
+                Color temp = *pixel2;
                 *pixel2 = *pixel1;
-                *pixel1 = safe;
+                *pixel1 = temp;
             }
         }
     }
@@ -276,7 +278,7 @@ namespace prog
 
     void Script::add()
     {
-        // Iterate over each pixel of the new image, if it's different from the neutral color add it to the original color
+        // Iterate over each pixel of the new image, if it's different from the neutral color add it to the original color.
         string filename;
         Color c;
         int x, y;
@@ -301,11 +303,11 @@ namespace prog
 
     void Script::crop()
     {
-        // Create new image to hold the cropped image, then replace the original image with the cropped image
+        // Create new image to hold the cropped image.
         int x, y, w, h;
         input >> x >> y >> w >> h;
         Image *new_img = new Image(w, h);
-        // Iterate over each pixel from the new image and change it to match the original image
+        // Iterate over each pixel from the new image and change it to match the original image.
         for (int i = 0; i < h; i++)
         {
             for (int j = 0; j < w; j++)
@@ -313,13 +315,14 @@ namespace prog
                 new_img->at(j, i) = this->image->at(j + x, i + y);
             }
         }
+        // Replace the original image with the cropped image.
         delete this->image;
         this->image = new_img;
     }
 
     void Script::rotate_left()
     {
-        // Transpose the matrix (swap the coordinates of each pixel) and then mirror it vertically
+        // Transpose the image (swap the coordinates of each pixel) and then mirror it vertically.
         int h = this->image->height();
         int w = this->image->width();
         Image *new_img = new Image(h, w);
@@ -338,7 +341,7 @@ namespace prog
     void Script::rotate_right()
     {
 
-        // Transpose the matrix (swap the coordinates of each pixel) and then mirror it horizontally
+        // Transpose the image (swap the coordinates of each pixel) and then mirror it horizontally.
         int h = this->image->height();
         int w = this->image->width();
         Image *new_img = new Image(h, w);
@@ -372,7 +375,7 @@ namespace prog
         sort(reds, reds + len);
         sort(greens, greens + len);
         sort(blues, blues + len);
-        // If there are an odd number of elements just return the middle element
+        // If there are an odd number of elements just return the middle element.
         if (len % 2 != 0)
         {
             rgb_value red = reds[len / 2];
@@ -383,7 +386,7 @@ namespace prog
             delete[] blues;
             return {red, green, blue};
         }
-        // Otherwise return the mean of the two middle elements
+        // Otherwise return the mean of the two middle elements.
         else
         {
             rgb_value red = (reds[len / 2 - 1] + reds[len / 2]) / 2;
@@ -403,11 +406,12 @@ namespace prog
         int h = this->image->height();
         int w = this->image->width();
         Image *new_img = new Image(w, h);
+        // Iterate over each pixel
         for (int y = 0; y < h; y++)
         {
             for (int x = 0; x < w; x++)
             {
-                // Get all neighbors of that pixel and put them in a vector.
+                // Get all neighbors of that pixel and add them to a vector.
                 vector<Color> neighbors;
                 for (int ny = max(0, y - ws / 2); ny <= min(h - 1, y + ws / 2); ny++)
                 {
