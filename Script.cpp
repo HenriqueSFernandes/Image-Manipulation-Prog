@@ -376,11 +376,12 @@ namespace prog
         sort(greens, greens + len);
         sort(blues, blues + len);
         // If there are an odd number of elements just return the middle element.
+        int mid = len / 2;
         if (len % 2 != 0)
         {
-            rgb_value red = reds[len / 2];
-            rgb_value green = greens[len / 2];
-            rgb_value blue = blues[len / 2];
+            rgb_value red = reds[mid];
+            rgb_value green = greens[mid];
+            rgb_value blue = blues[mid];
             delete[] reds;
             delete[] greens;
             delete[] blues;
@@ -389,9 +390,9 @@ namespace prog
         // Otherwise return the mean of the two middle elements.
         else
         {
-            rgb_value red = (reds[len / 2 - 1] + reds[len / 2]) / 2;
-            rgb_value green = (greens[len / 2 - 1] + greens[len / 2]) / 2;
-            rgb_value blue = (blues[len / 2 - 1] + blues[len / 2]) / 2;
+            rgb_value red = (reds[mid - 1] + reds[mid]) / 2;
+            rgb_value green = (greens[mid - 1] + greens[mid]) / 2;
+            rgb_value blue = (blues[mid - 1] + blues[mid]) / 2;
             delete[] reds;
             delete[] greens;
             delete[] blues;
