@@ -357,7 +357,7 @@ namespace prog
         this->h_mirror();
     }
 
-    Color median(vector<Color> neighbors)
+    Color median(const vector<Color> &neighbors)
     {
         // Get length of the vector and initialize arrays to store each rgb component.
         int len = neighbors.size();
