@@ -5,7 +5,6 @@
 #include <map>
 #include <sstream>
 #include <iomanip>
-#include <iostream> //delete
 
 using namespace std;
 namespace prog
