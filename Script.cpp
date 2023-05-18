@@ -292,7 +292,7 @@ namespace prog
         {
             for (int j = 0; j < w; j++)
             {
-                if (c != loaded_img->at(j, i))
+                if (loaded_img->at(j, i) != c)
                 {
                     this->image->at(j + x, i + y) = loaded_img->at(j, i);
                 }
