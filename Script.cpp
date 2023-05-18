@@ -217,7 +217,7 @@ namespace prog
         {
             for (int j = 0; j < this->image->width(); j++)
             {
-                // Get current pixel, and replace it if it matches the given color.
+                // Get current pixel and replace it if it matches the given color.
                 Color *curr_pixel = &this->image->at(j, i);
                 if (*curr_pixel == color1)
                 {
